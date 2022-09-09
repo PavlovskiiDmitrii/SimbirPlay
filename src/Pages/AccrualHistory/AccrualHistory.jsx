@@ -1,11 +1,11 @@
 import React from "react";
 import "antd/dist/antd.min.css";
-import {List, Timeline} from 'antd';
+import {List} from 'antd';
+import Card from "antd/es/card/Card";
 import {useSelector} from "react-redux";
 import {selectHistory} from "../../store/history/historySlice";
 
 import './AccrualHistory.scss'
-import Card from "antd/es/card/Card";
 
 export const AccrualHistory = () => {
     const items = useSelector(selectHistory);
