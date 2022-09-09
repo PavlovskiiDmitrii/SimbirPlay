@@ -1,27 +1,43 @@
-import React from 'react';
-import { Counter } from './features/counter/Counter';
+import React from "react";
+import { Layout, Menu } from "antd";
 import { Routes, Route, Link } from "react-router-dom";
+import { admimTypePaths } from "./variables";
+import { paths } from "./routes/routesData";
+import classNames from "classnames";
+import "antd/dist/antd.min.css";
+import './index.scss';
 
-import 'antd/dist/antd.min.css';
+const { Header, Footer, Content } = Layout;
 
+const headerLinks = () => {
+  return paths.map((item) => {
+    if (item.type !== admimTypePaths) {
+      return (
+        <Menu.Item key={item.path}  className={classNames('menu-item')}>
+          <Link to={`/${item.path}`}>{item.linkText}</Link>
+        </Menu.Item>
+      );
+    }
+  });
+};
 
 function App() {
   return (
-    <div className="App">
-        <Counter />
-
-        <Link to={`/`}>
-          home
-        </Link>
-        <Link to={`/about`}>
-          about
-        </Link>
-
+    <Layout>
+      <Header>
+        <Menu mode="horizontal" defaultSelectedKeys={[""]}>
+          {headerLinks()}
+        </Menu>
+      </Header>
+      <Content className={classNames('content')}>
         <Routes>
-          <Route path={`/`} element={<div>home</div>} />
-          <Route path={`/about`} element={<div>about</div>} />
+          {paths.map((item) => (
+            <Route path={`/${item.path}`} element={item.page} />
+          ))}
         </Routes>
-    </div>
+      </Content>
+      <Footer className={classNames('footer')}>Footer</Footer>
+    </Layout>
   );
 }
 

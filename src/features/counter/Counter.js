@@ -22,7 +22,6 @@ export function Counter() {
       </div>
       <div>
         <input
-          aria-label="Set increment amount"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
