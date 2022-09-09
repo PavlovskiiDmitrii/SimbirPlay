@@ -1,0 +1,13 @@
+.accrualHistory{
+  margin: 50px;
+  display: flex;
+  &__list{
+    color: green;
+  }
+  &__container{
+    width: 300px;
+  }
+  .ant-card{
+    margin-right: 30px;
+  }
+}
