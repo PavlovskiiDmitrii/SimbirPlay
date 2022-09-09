@@ -8,9 +8,6 @@ import './index.scss';
 
 const { Header, Footer, Content } = Layout;
 
-
-
-
 function App() {
   return (
     <Layout>

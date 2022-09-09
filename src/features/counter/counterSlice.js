@@ -17,11 +17,6 @@ export const incrementAsync = createAsyncThunk(
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
-  reducers: {
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
-    },
-  },
   extraReducers: (builder) => {
     builder
       .addCase(incrementAsync.pending, (state) => {
