@@ -1,0 +1,10 @@
+.storeItemsList {
+    &__wrap {
+
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+    }
+}
