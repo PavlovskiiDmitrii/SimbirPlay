@@ -19,7 +19,7 @@ export const pathsLinks = [
   {
     path: "rules",
     page: <Rules />,
-    linkText: "Как получить simbircoins?",
+    linkText: "Как получить бонусы?",
     type: "basic",
   },
 ];

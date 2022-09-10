@@ -1,14 +1,11 @@
 import React, {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {StarOutlined} from "@ant-design/icons";
-import {Link} from "react-router-dom";
 import {
     selectUserList,
     fetchUserListThunk,
 } from "../../store/userList/userListSlice";
-import classNames from "classnames";
 import "./userList.scss";
-import background from "./static/avatar.jpg";
 import {Space, Table, Tag} from "antd";
 import Avatar from "antd/es/avatar/avatar";
 
@@ -62,9 +59,8 @@ export const UserList = (selectDirections) => {
     ];
 
     return (
-        <div>
-            <Table key={filterUsers.id} columns={columns} dataSource={filterUsers}/>
-            {/*{users.map((user, i) => (
+            <Table size="large" key={filterUsers.id} columns={columns} dataSource={filterUsers}/>
+          /*  {users.map((user, i) => (
         <div
           className={classNames("user__item", i < 3 ? "user__item_Big" : "")}
           key={user.id}
@@ -81,7 +77,6 @@ export const UserList = (selectDirections) => {
             <StarOutlined twoToneColor="#eb2f96" />
           </div>
         </div>
-      ))}*/}
-        </div>
+      ))}*/
     );
 };

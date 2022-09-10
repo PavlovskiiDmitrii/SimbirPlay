@@ -24,7 +24,7 @@ export const DirectionSelect = () => {
                     <div>Направление:</div>
                     <Select
                         className={classNames('directionSelect__select')}
-                        defaultValue={selectDirections}
+                        defaultValue={[selectDirections]}
                         style={{width: 120}}
                         onChange={handleChange}
                     >

@@ -10,7 +10,7 @@ import './RulesList.scss'
 
 
 export const RulesList = () => {
-    const {rules} = useSelector(selectRules);
+/*    const {rules} = useSelector(selectRules);*/
     const dispatch = useDispatch();
 
 
@@ -47,13 +47,13 @@ export const RulesList = () => {
                 </ul>
             </span>
             <div>
-                {
+                {/*{
                     rules.map((rule) => (
                         <div key={rule.id}>
                             {rule.name}
                         </div>
                     ))
-                }
+                }*/}
             </div>
         </>
     );
