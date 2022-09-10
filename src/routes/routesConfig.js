@@ -22,6 +22,12 @@ export const pathsLinks = [
     linkText: "Как получить бонусы?",
     type: "basic",
   },
+/*  {
+    path: "simbirplay",
+    page: <SimbirPlay />,
+    linkText: "SimbirPlay",
+    type: "basic",
+  },*/
 ];
 
 export const pathsContent = [
