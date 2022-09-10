@@ -10,7 +10,6 @@ export const AccrualHistoryItemsList = () => {
     const {userList} = useSelector(selectUserData);
 /*    const dispatch = useDispatch;*/
     const iserId = useLocation().pathname.split('/').pop();
-    console.log(iserId)
 /*    useEffect(() => {
         dispatch(fetchDataThunk());
     }, []);*/

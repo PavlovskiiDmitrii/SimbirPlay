@@ -5,8 +5,10 @@ import {
     selectUserList,
     fetchUserListThunk,
 } from "../../store/userList/userListSlice";
+import classNames from 'classnames';
 import "./userList.scss";
 import {Space, Table, Tag} from "antd";
+import {Link} from "react-router-dom";
 import Avatar from "antd/es/avatar/avatar";
 
 export const UserList = (selectDirections) => {
@@ -41,10 +43,10 @@ export const UserList = (selectDirections) => {
             render: (name, filtersUserElement) => {
                 return (
                     <div className="customCell">
-                        {/*<div
+                        <div
                             className={classNames("user__avatar")}
                             style={{backgroundImage: `url(${filtersUserElement.avatar})`}}
-                        ></div>*/}
+                        ></div>
                         <Avatar size={56} src={filtersUserElement.avatar} />
                         <div className="customCell__name">{filtersUserElement.name + ' ' + filtersUserElement.surname}</div>
                     </div>
@@ -55,6 +57,17 @@ export const UserList = (selectDirections) => {
             title: 'Направление',
             dataIndex: 'departament',
             key: 'departament',
+        },{
+            title: 'История',
+            dataIndex: 'history',
+            key: 'history',
+            render: (name, filtersUserElement) => {
+                return (
+                    <div>
+                        <Link to={`/accrualhistory/${filtersUserElement.id}`}>{'Профиль'}</Link>
+                    </div>
+                )
+            }
         },
     ];
 
