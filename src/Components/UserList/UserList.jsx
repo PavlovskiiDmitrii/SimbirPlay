@@ -1,79 +1,89 @@
-import React, {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {StarOutlined} from "@ant-design/icons";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { StarOutlined } from "@ant-design/icons";
 import {
-    selectUserList,
-    fetchUserListThunk,
+  selectUserList,
+  fetchUserListThunk,
 } from "../../store/userList/userListSlice";
-import classNames from 'classnames';
+import classNames from "classnames";
 import "./userList.scss";
-import {Space, Table, Tag} from "antd";
-import {Link} from "react-router-dom";
-import Avatar from "antd/es/avatar/avatar";
+import { Table, Avatar } from "antd";
+import { Link } from "react-router-dom";
 
 export const UserList = (selectDirections) => {
-    const {users} = useSelector(selectUserList);
-    const dispatch = useDispatch();
-    const filterUsers = selectDirections.selectDirections === '' ? users :  users.filter(el => el.departament === selectDirections.selectDirections)
+  const { users } = useSelector(selectUserList);
+  const dispatch = useDispatch();
+  const filterUsers =
+    selectDirections.selectDirections === ""
+      ? users
+      : users.filter(
+          (el) => el.departament === selectDirections.selectDirections
+        );
 
-    useEffect(() => {
-        dispatch(fetchUserListThunk());
-    }, []);
+  useEffect(() => {
+    dispatch(fetchUserListThunk());
+  }, []);
 
-    useEffect(() => {
-        console.log(filterUsers);
-    }, [filterUsers]);
+  const columns = [
+    {
+      title: "Рейтинг",
+      dataIndex: "rating",
+      key: "rating",
+      render: (rating) => (
+        <>
+          <StarOutlined twoToneColor="#eb2f96" />
+          <span>{rating}</span>
+        </>
+      ),
+    },
+    {
+      title: "Имя",
+      dataIndex: "name",
+      key: "name",
+      render: (name, filtersUserElement) => {
+        return (
+          <div className="customCell">
+            <div
+              className={classNames("user__avatar")}
+              style={{ backgroundImage: `url(${filtersUserElement.avatar})` }}
+            ></div>
+            <Avatar size={56} src={filtersUserElement.avatar} />
+            <div className="customCell__name">
+              {filtersUserElement.name + " " + filtersUserElement.surname}
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      title: "Направление",
+      dataIndex: "departament",
+      key: "departament",
+    },
+    {
+      title: "История",
+      dataIndex: "history",
+      key: "history",
+      render: (name, filtersUserElement) => {
+        return (
+          <div>
+            <Link to={`/accrualhistory/${filtersUserElement.id}`}>
+              {"Профиль"}
+            </Link>
+          </div>
+        );
+      },
+    },
+  ];
 
-    const columns = [
-        {
-            title: 'Рейтинг',
-            dataIndex: 'rating',
-            key: 'rating',
-            render: (rating) => (
-                <>
-                    <StarOutlined twoToneColor="#eb2f96"/>
-                    <span>{rating}</span>
-                </>
-            )
-        },
-        {
-            title: 'Имя',
-            dataIndex: 'name',
-            key: 'name',
-            render: (name, filtersUserElement) => {
-                return (
-                    <div className="customCell">
-                        <div
-                            className={classNames("user__avatar")}
-                            style={{backgroundImage: `url(${filtersUserElement.avatar})`}}
-                        ></div>
-                        <Avatar size={56} src={filtersUserElement.avatar} />
-                        <div className="customCell__name">{filtersUserElement.name + ' ' + filtersUserElement.surname}</div>
-                    </div>
-                );
-            }
-        },
-        {
-            title: 'Направление',
-            dataIndex: 'departament',
-            key: 'departament',
-        },{
-            title: 'История',
-            dataIndex: 'history',
-            key: 'history',
-            render: (name, filtersUserElement) => {
-                return (
-                    <div>
-                        <Link to={`/accrualhistory/${filtersUserElement.id}`}>{'Профиль'}</Link>
-                    </div>
-                )
-            }
-        },
-    ];
-
-    return (
-            <Table size="large" key={filterUsers.id} columns={columns} dataSource={filterUsers}/>
-          /*  {users.map((user, i) => (
+  return (
+    <Table
+      size="large"
+      key={filterUsers.id}
+      columns={columns}
+      dataSource={filterUsers}
+    />
+    /*  {users.map((user, i) => (
         <div
           className={classNames("user__item", i < 3 ? "user__item_Big" : "")}
           key={user.id}
@@ -91,5 +101,5 @@ export const UserList = (selectDirections) => {
           </div>
         </div>
       ))}*/
-    );
+  );
 };

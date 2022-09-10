@@ -26,6 +26,8 @@
   }
   &__img {
    width: 200px;
+   background-position: center;
+   background-color: red;
   }
   &__card {
     width: 100%;
@@ -43,6 +45,7 @@
     align-items: center;
     margin: 15px;
     padding-bottom: 26px;
+    padding-top: 26px;
 
     cursor: pointer;
     &:hover{
