@@ -7,7 +7,7 @@ import "antd/dist/antd.min.css";
 
 export const Rules = () => {
   return (
-    <div className={classNames('pageWrap')}>
+    <div className={classNames('pageWrap__rules')}>
         <RulesList/>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import { Layout } from "antd";
 import { HeaderContent } from "./Components/HeaderContent/HeaderContent";
 import { ContentContent } from "./Components/ContentContent/ContentContent";
+import {FooterContent} from "./Components/FooterContent/FooterContent";
 import classNames from "classnames";
 import "antd/dist/antd.min.css";
 import './index.scss';
@@ -17,7 +18,7 @@ function App() {
       <Content className={classNames('content')}>
         <ContentContent/>
       </Content>
-      <Footer className={classNames('footer')}>Footer</Footer>
+      <Footer className={classNames('footer')}><FooterContent/></Footer>
     </Layout>
   );
 }
