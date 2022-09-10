@@ -2,34 +2,33 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchHistory } from '../../api/historyAPI';
 
 const initialState = {
-    value: [ { points:5 ,title:'Посадил дерево', time:'2015-09-01'},{ points:10 , title:'Положительный отзыв клиента', time:'2015-09-01'},
-        { points:10 ,title:'Выложил статью на хабр', time:'2015-09-01'}],
+    value: [],
     status: 'idle',
 };
 
-export const fetchData = createAsyncThunk(
+export const fetchDataThunk = createAsyncThunk(
     'history/fetchHistory',
     async (amount) => {
         const response = await fetchHistory(amount);
-        return response.data;
+        return response.result;
     }
 );
 
 export const counterSlice = createSlice({
-    name: 'histore',
+    name: 'history',
     initialState,
     extraReducers: (builder) => {
         builder
-            .addCase(fetchData.pending, (state) => {
+            .addCase(fetchDataThunk.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(fetchData.fulfilled, (state, action) => {
+            .addCase(fetchDataThunk.fulfilled, (state, action) => {
                 state.status = 'idle';
                 state.value += action.payload;
             });
     },
 });
 
-export const selectHistory = (state) => state.history.value;
+export const selectHistory = (state) => state.value;
 
 export default counterSlice.reducer;

@@ -10,7 +10,7 @@ export const fetchStoreItemsThunk = createAsyncThunk(
   'store/fetchStoreItem',
   async () => {
     const response = await fetchStoreItem();
-    return response.data;
+    return response.result;
   }
 );
 

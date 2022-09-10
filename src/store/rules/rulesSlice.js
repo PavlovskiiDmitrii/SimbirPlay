@@ -10,7 +10,7 @@ export const fetchRulesThunk = createAsyncThunk(
   'rules/fetchRules',
   async (direction) => {
     const response = await fetchRules(direction);
-    return response.data;
+    return response.result;
   }
 );
 

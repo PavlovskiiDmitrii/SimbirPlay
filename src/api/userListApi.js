@@ -27,11 +27,7 @@ const defaultUsers = [
   },
 ];
 
-export async function fetchUserList(direction = "Frontend") {
-  const { data } = await axios.get(`http://simbir-play.site/user/list`);
-  console.log(data);
-
-  return new Promise((resolve) =>
-    setTimeout(() => resolve({ data: defaultUsers }), 500)
-  );
+export async function fetchUserRate(direction = "Frontend") {
+  const { data } = await axios.get(`http://simbir-play.site/rating`);
+    return data;
 }

@@ -1,5 +1,6 @@
-export function fetchHistory(amount = 1) {
-    return new Promise((resolve) =>
-        setTimeout(() => resolve({ data: amount }), 500)
-    );
+import axios from "axios";
+
+export async function fetchHistory() {
+    const { data } = await axios.get(`http://simbir-play.site/user/info`);
+    return data;
 }
