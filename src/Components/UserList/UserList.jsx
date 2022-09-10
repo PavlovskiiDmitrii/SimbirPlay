@@ -7,6 +7,7 @@ import {
 } from "../../store/userList/userListSlice";
 import "./userList.scss";
 import {Space, Table, Tag} from "antd";
+import {Link} from "react-router-dom";
 import Avatar from "antd/es/avatar/avatar";
 
 export const UserList = (selectDirections) => {
@@ -55,6 +56,17 @@ export const UserList = (selectDirections) => {
             title: 'Направление',
             dataIndex: 'departament',
             key: 'departament',
+        },{
+            title: 'История',
+            dataIndex: 'history',
+            key: 'history',
+            render: (name, filtersUserElement) => {
+                return (
+                    <div>
+                        <Link to={`/accrualhistory/${filtersUserElement.id}`}>{'Профиль'}</Link>
+                    </div>
+                )
+            }
         },
     ];
 
