@@ -8,7 +8,7 @@ import {useLocation} from "react-router-dom";
 import "antd/dist/antd.min.css";
 import { PlayCircleTwoTone} from "@ant-design/icons";
 
-// import './HeaderContent.scss'
+import './HeaderContent.scss'
 
 export const HeaderContent = () => {
     const path = useLocation().pathname.split("/").pop();
