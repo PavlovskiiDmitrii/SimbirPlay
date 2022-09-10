@@ -27,7 +27,6 @@ export const StoreItemsList = () => {
     const addItem = () => {
         console.log('addItem')
     };
-    console.log(userData)
     return (
         <>
             <Card
