@@ -2,9 +2,13 @@
   margin: 50px;
   display: flex;
   flex-direction: column;
+
+  &__store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
 
-.pageWrap__store {
-  margin: 50px;
-  display: flex;
-}
+

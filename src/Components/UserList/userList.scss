@@ -1,4 +1,4 @@
-.user {
+/*.user {
   &_name {
   }
 
@@ -20,7 +20,7 @@
       background-color: aquamarine;
     }
   }
-}
+}*/
 
 .customCell {
   display: flex;
@@ -28,4 +28,7 @@
   &__name {
     margin-left: 10px;
   }
+}
+.ant-table{
+  font-size: 16px;
 }

@@ -1,5 +1,6 @@
 .directionSelect {
     &__wrap {
+        font-size: 20px;
         display: flex;
         align-items: center;
         justify-content: start;
@@ -7,6 +8,7 @@
     }
 
     &__select {
-        margin-left: 8px;
+        font-size: 20px;
+        margin-left: 15px;
     }
 }
