@@ -8,7 +8,7 @@ import rulesSlice from './rules/rulesSlice';
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    userData: userDataSlice,
+    user: userDataSlice,
     userList: userListSlice,
     storeItems: storeSlice,
     rules: rulesSlice
