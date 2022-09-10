@@ -39,7 +39,7 @@ export const StoreItemsList = () => {
                 <div className="card__descr">
                     <span>Иван Осипов{/*{userData.name} {userData.surname}*/}</span>
                     <span>Аналитик</span>
-                    <span>Баланс {/*{userData.totalBalance}*/} <SketchOutlined/> Simbircoin</span>
+                    <span>Баланс {/*{userData.totalBalance}*/} <SketchOutlined/> SimbirСoin</span>
                 </div>
                 {/* <span>{searchParams}</span> */}
             </div>
@@ -57,7 +57,7 @@ export const StoreItemsList = () => {
                         </div>
                     ))}
                 </div>
-                <Button onClick={addItem} type="primary">Добавить товар</Button>
+                {/*<Button onClick={addItem} type="primary">Добавить товар</Button>*/}
             </div>
         </>
 
