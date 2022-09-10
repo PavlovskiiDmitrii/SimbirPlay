@@ -5,6 +5,7 @@ import {
     selectUserList,
     fetchUserListThunk,
 } from "../../store/userList/userListSlice";
+import classNames from 'classnames';
 import "./userList.scss";
 import {Space, Table, Tag} from "antd";
 import {Link} from "react-router-dom";
@@ -42,10 +43,10 @@ export const UserList = (selectDirections) => {
             render: (name, filtersUserElement) => {
                 return (
                     <div className="customCell">
-                        {/*<div
+                        <div
                             className={classNames("user__avatar")}
                             style={{backgroundImage: `url(${filtersUserElement.avatar})`}}
-                        ></div>*/}
+                        ></div>
                         <Avatar size={56} src={filtersUserElement.avatar} />
                         <div className="customCell__name">{filtersUserElement.name + ' ' + filtersUserElement.surname}</div>
                     </div>
