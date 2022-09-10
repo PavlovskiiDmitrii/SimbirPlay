@@ -39,7 +39,7 @@ export const StoreItemsList = () => {
                 <div className="card__descr">
                     <span>Иван Осипов{/*{userData.name} {userData.surname}*/}</span>
                     <span>Аналитик</span>
-                    <span>Баланс {/*{userData.totalBalance}*/} <SketchOutlined/> SimbirСoin</span>
+                    <span>Баланс {/*{userData.totalBalance}*/}150<SketchOutlined/></span>
                 </div>
                 {/* <span>{searchParams}</span> */}
             </div>

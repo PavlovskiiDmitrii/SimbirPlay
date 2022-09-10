@@ -1,0 +1,26 @@
+/*.ant-layout-header .ant-menu {
+  align-items: center;
+}
+.ant-avatar.ant-avatar-icon{
+  position: absolute;
+  right: 135px;
+}*/
+.header {
+  display: flex;
+
+  &__logo {
+    font-size: 20px;
+    margin-right: 25px;
+    color: aliceblue;
+  }
+}
+
+.ant-layout-header .ant-menu {
+  font-size: 20px;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.anticon {
+  margin-right: 5px
+}
