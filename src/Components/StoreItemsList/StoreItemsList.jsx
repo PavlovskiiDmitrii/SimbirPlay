@@ -27,7 +27,6 @@ export const StoreItemsList = () => {
     const addItem = () => {
         console.log('addItem')
     };
-    console.log(userData)
     return (
         <>
             <video className={classNames("storeItemsList__video")} autoPlay muted loop preload="auto" src={backgroundVideo}>
@@ -49,6 +48,7 @@ export const StoreItemsList = () => {
                 <div className={classNames("storeItemsList__items")}>
                     {storeItems && storeItems.map((item) => (
                         <div key={item.id} className={classNames("storeItemsList__item")}>
+                            <img className={classNames("storeItemsList__img")} src="https://img0.happywear.ru/2000x2000/cache/goods/K/R/KR201513_%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9_front.jpg"/>
                             <div>{item.name}</div>
                             <div className="item__price">
                                 <div>{item.price}</div>

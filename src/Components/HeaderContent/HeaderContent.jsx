@@ -14,7 +14,7 @@ export const HeaderContent = () => {
     const path = useLocation().pathname.split("/").pop();
     return (
         <div className={classNames("header")}>
-            <div className={classNames("header__logo")}><PlayCircleTwoTone />SimbirPlay</div>
+            <a href="#" className={classNames("header__logo")}><PlayCircleTwoTone />SimbirPlay</a>
             <Menu mode="horizontal" defaultSelectedKeys={[path ? path : ""]}>
                 {pathsLinks.map((item) => {
                     if (item.type !== admimTypePaths) {
