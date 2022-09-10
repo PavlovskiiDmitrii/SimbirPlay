@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {fetchDataThunk, selectHistory} from "../../store/history/historySlice";
+import {fetchUserDataThunk, selectUserData} from "../../store/history/historySlice";
 import {useLocation} from "react-router-dom";
 import React, {useEffect} from "react";
 import Card from "antd/es/card/Card";
@@ -7,13 +7,13 @@ import {List} from "antd";
 import './AccrualHistory.scss'
 
 export const AccrualHistoryItemsList = () => {
-    const userList = useSelector(selectHistory);
+    const {userList} = useSelector(selectUserData);
 /*    const dispatch = useDispatch;*/
     const iserId = useLocation().pathname.split('/').pop();
     console.log(iserId)
 /*    useEffect(() => {
         dispatch(fetchDataThunk());
-    }, [dispatch]);*/
+    }, []);*/
 
 
     return (

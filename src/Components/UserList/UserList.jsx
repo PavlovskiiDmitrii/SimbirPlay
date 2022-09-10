@@ -19,7 +19,7 @@ export const UserList = (selectDirections) => {
 
     useEffect(() => {
         dispatch(fetchUserListThunk());
-    }, [users]);
+    }, []);
 
     useEffect(() => {
         console.log(filterUsers);

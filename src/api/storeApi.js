@@ -27,3 +27,8 @@ export async function fetchStoreItem() {
     const { data } = await axios.get(`http://simbir-play.site/merch/list`);
     return data;
 }
+
+export async function buyStoreItem(id) {
+    const { data } = await axios.post(`http://simbir-play.site/merch/buy/${id}`);
+    return data;
+}
