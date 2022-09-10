@@ -7,7 +7,7 @@ import "antd/dist/antd.min.css";
 
 export const Store = () => {
   return (
-    <div className={classNames('pageWrap')}>
+    <div className={classNames('pageWrap__store')}>
         <StoreItemsList/>
     </div>
   );

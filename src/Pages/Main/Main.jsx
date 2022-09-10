@@ -3,17 +3,11 @@ import { DirectionSelect } from "../../Components/DirectionSelect/DirectionSelec
 import classNames from "classnames";
 import '../page.scss';
 import './main.scss';
-import { UserList } from "../../Components/UserList/UserList";
 
 export const Main = () => {
   return (
     <div className={classNames('pageWrap')}>
-      <div className="main__header-wrap">
-        <DirectionSelect />
-      </div>
-      <div className="main__list">
-        <UserList/>
-      </div>
+        <DirectionSelect/>
     </div>
   );
 };

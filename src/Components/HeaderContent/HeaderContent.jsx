@@ -6,6 +6,7 @@ import { admimTypePaths } from "../../variables";
 import classNames from "classnames";
 import { useLocation } from "react-router-dom";
 import "antd/dist/antd.min.css";
+import {PlayCircleFilled} from "@ant-design/icons";
 
 export const HeaderContent = () => {
   const path = useLocation().pathname.split("/").pop();

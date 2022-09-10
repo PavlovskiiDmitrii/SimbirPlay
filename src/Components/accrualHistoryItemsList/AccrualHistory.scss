@@ -10,4 +10,8 @@
   .ant-card{
     margin-right: 30px;
   }
+  .card__descr{
+    display: flex;
+    flex-direction: column;
+  }
 }

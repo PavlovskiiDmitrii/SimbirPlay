@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const defaultRulesTypes = ["ecology", "work", "sport"];
 
 const defaultRules = [
@@ -33,8 +35,7 @@ const defaultRules = [
   },
 ];
 
-export function fetchRules() {
-  return new Promise((resolve) =>
-    setTimeout(() => resolve({ data: defaultRules }), 500)
-  );
+export async function fetchRules() {
+  const { data } = await axios.get(`http://simbir-play.site/promo/list`);
+  return data;
 }

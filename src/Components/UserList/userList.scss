@@ -1,21 +1,31 @@
 .user {
-    &_name {}
+  &_name {
+  }
 
-    &__rating {}
+  &__rating {
+  }
 
-    &__avatar {
-        height: 40px;
-        width: 40px;
-        background-size: cover;
+  &__avatar {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &_Big {
+      background-color: aquamarine;
     }
+  }
+}
 
-    &__item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        &_Big {
-            background-color: aquamarine;
-        }
-    }
+.customCell {
+  display: flex;
+  align-items: center;
+  &__name {
+    margin-left: 10px;
+  }
 }

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const defaultItems = [
   {
     id: 1,
@@ -21,6 +23,12 @@ const defaultItems = [
   },
 ];
 
-export function fetchStoreItem() {
-  return new Promise((resolve) => setTimeout(() => resolve({ data: defaultItems }), 500));
+export async function fetchStoreItem() {
+    const { data } = await axios.get(`http://simbir-play.site/merch/list`);
+    return data;
+}
+
+export async function buyStoreItem(id) {
+    const { data } = await axios.post(`http://simbir-play.site/merch/buy/${id}`);
+    return data;
 }

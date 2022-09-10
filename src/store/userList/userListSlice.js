@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchUserList } from '../../api/userListApi';
+import {fetchUserRate} from '../../api/userListApi';
 
 const initialState = {
   users: [],
@@ -9,8 +9,9 @@ const initialState = {
 export const fetchUserListThunk = createAsyncThunk(
   'userList/fetchUserList',
   async (direction) => {
-    const response = await fetchUserList(direction);
-    return response.data;
+    const response = await fetchUserRate(direction);
+    console.log(response.result);
+    return response.result;
   }
 );
 
@@ -25,7 +26,7 @@ export const userListSlice = createSlice({
       .addCase(fetchUserListThunk.fulfilled, (state, action) => {
         state.status = 'idle';
         state.users = action.payload;
-      });
+      })
   },
 });
 
