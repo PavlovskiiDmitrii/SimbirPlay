@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const defaultUsers = [
   {
     id: 1,
@@ -22,9 +24,14 @@ const defaultUsers = [
     name: "Илья Кузмичёв",
     simbirCoins: 1510,
     ratingPoints: 1510,
-  }
+  },
 ];
 
-export function fetchUserList(direction = 'Frontend') {
-  return new Promise((resolve) => setTimeout(() => resolve({ data: defaultUsers }), 500));
+export async function fetchUserList(direction = "Frontend") {
+  const { data } = await axios.get(`http://simbir-play.site/user/list`);
+  console.log(data);
+
+  return new Promise((resolve) =>
+    setTimeout(() => resolve({ data: defaultUsers }), 500)
+  );
 }
