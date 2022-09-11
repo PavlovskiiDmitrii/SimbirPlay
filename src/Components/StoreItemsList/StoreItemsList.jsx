@@ -99,7 +99,7 @@ export const StoreItemsList = () => {
               <div className="item__price">
                 <div>{item.price}💎</div>
               </div>
-              <Button onClick={() => {}}>Купить</Button>
+              <Button style={{width: '150px'}}>Купить</Button>
             </div>
           ))}
         </div>
