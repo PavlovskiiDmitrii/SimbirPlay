@@ -53,12 +53,11 @@ export const StoreItemsList = () => {
                 fetchAddNewStoreItem(document.getElementById('basic_username').value, document.getElementById('basic_password').value)
                 .then(() => {
                   setPopupActive(false);
-                  alert("Поощрение добавлено!");
+                  alert("Товар добавлен!");
                 })
                 .catch((err) => {
                   setPopupActive(false);
                   alert("Повторите позже :(");
-                  console.log(err)
                 });
             }}
           >
@@ -100,18 +99,18 @@ export const StoreItemsList = () => {
               <div className="item__price">
                 <div>{item.price}💎</div>
               </div>
-              <Button onClick={() => {}}>Купить</Button>
+              <Button style={{width: '150px'}}>Купить</Button>
             </div>
           ))}
         </div>
-        <Button
+        {/* <Button
           onClick={() => {
             setPopupActive(true);
           }}
           type="primary"
         >
           Добавить товар
-        </Button>
+        </Button> */}
         {popupActive && (
           <Popup
             setPopupActive={setPopupActive}

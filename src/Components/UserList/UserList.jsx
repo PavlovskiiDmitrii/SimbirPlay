@@ -36,7 +36,7 @@ export const UserList = (selectDirections) => {
       ),
     },
     {
-      title: "Имя",
+      title: "Сотрудник компании",
       dataIndex: "name",
       key: "name",
       render: (name, filtersUserElement) => {

@@ -4,20 +4,22 @@ import { useSelector, useDispatch } from "react-redux";
 import { Card, List, Button, Form, Divider, Input } from "antd";
 import { fetchAddNewHistory } from "../../api/addNewHistory";
 import classNames from "classnames";
+import { Select } from "antd";
 import {
   selectHistoryUser,
   fetchHistoryThunk,
 } from "../../store/history/historySlice";
+import { fetchRulesThunk, selectRules } from "../../store/rules/rulesSlice";
 import "./AccrualHistory.scss";
 import { Popup } from "../Popup/Popup";
+import background from "./formula.png";
+
+const { Option } = Select;
 
 export const AccrualHistoryItemsList = () => {
   const dispatch = useDispatch();
   const iserId = useLocation().pathname.split("/").pop();
   const { user } = useSelector(selectHistoryUser);
-
-
-  console.log(user)
 
   const [popupActive, setPopupActive] = useState(false);
 
@@ -26,6 +28,18 @@ export const AccrualHistoryItemsList = () => {
   }, []);
 
   const FormHistory = () => {
+    const dispatch = useDispatch();
+    const { rules } = useSelector(selectRules);
+    const [formHistoryProps, setFormHistoryProps] = useState(['...', 100, 1]);
+
+    useEffect(() => {
+      dispatch(fetchRulesThunk());
+    }, []);
+
+    const handleChange = (value) => {
+      setFormHistoryProps([value.label, value.value, value.key]);
+    };
+
     return (
       <Form
         name="basic"
@@ -36,11 +50,30 @@ export const AccrualHistoryItemsList = () => {
       >
         <Form.Item
           label="Поощрение"
+          name="prom"
+          rules={[{ required: true, message: "За что поощряется сотрудник?" }]}
+        >
+          <Select
+            defaultValue={{ value: formHistoryProps[2], label: formHistoryProps[0] }}
+            labelInValue
+            style={{ width: 120 }}
+            onChange={handleChange}
+          >
+            {
+              rules.map((rule) => (
+                <Option key={rule.id} value={rule.defaultRating}>{rule.name}</Option>
+              ))
+            }
+          </Select>
+        </Form.Item>
+
+        {/* <Form.Item
+          label="Поощрение"
           name="username"
           rules={[{ required: true, message: "За что поощряется сотрудник?" }]}
         >
           <Input style={{ marginLeft: "10px" }} />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           label="Комментарий"
@@ -54,10 +87,16 @@ export const AccrualHistoryItemsList = () => {
           <Button
             type="primary"
             onClick={() => {
-              fetchAddNewHistory(1, "New Comment", 77)
+              fetchAddNewHistory(
+                iserId,
+                document.getElementById("basic_password").value,
+                formHistoryProps[1],
+                formHistoryProps[2],
+              )
                 .then(() => {
                   setPopupActive(false);
                   alert("Поощрение добавлено!");
+                  // window.location.reload();
                 })
                 .catch(() => {
                   setPopupActive(false);
@@ -79,7 +118,7 @@ export const AccrualHistoryItemsList = () => {
           className={classNames("accrualHistory__title")}
           orientation="left"
         >
-          История получения???
+          История зачислений
         </Divider>
         <div className={classNames("accrualHistory__wrap")}>
           <div className={classNames("accrualHistory__card")}>
@@ -92,18 +131,15 @@ export const AccrualHistoryItemsList = () => {
             >
               <div>
                 <span>
-                  {user.name}&nbsp;
-                  {user.surname}
+                  {user.name}&nbsp;{user.surname}
                 </span>
-                <br />
-                <span>Frontend-разработчик</span>
               </div>
             </Card>
           </div>
           <div className={classNames("accrualHistory__list")}>
             <List
               size="large"
-              footer={<div> Всего : {user.totalRating}💎</div>}
+              footer={<div style={{fontSize: '20px'}}> <strong>Всего : {user.totalRating}⭐</strong> </div>}
               dataSource={user.stimulus}
               renderItem={(item) => (
                 <List.Item>
@@ -112,25 +148,34 @@ export const AccrualHistoryItemsList = () => {
 
                     <div className={classNames("rule__item")}>
                       <div className={classNames("rule__text")}>
-                        <strong>{item.name}</strong>
+                        {item.name}
                       </div>
                       <div className={classNames("rule__ball")}>
-                        <strong>{item.balls}</strong> SimbirCoin
+                        <strong>+{item.balls}</strong>⭐
                       </div>
                     </div>
                   </div>
                 </List.Item>
               )}
             />
-            <Button
+            {/* <Button
               type="primary"
               onClick={() => {
                 setPopupActive(true);
               }}
             >
               Добавить баллы
-            </Button>
+            </Button> */}
           </div>
+          <div className={classNames("accrualHistory__game")}>
+            <div className={classNames("accrualHistory__game-titile")}>Уровень активности</div>
+            <div className={classNames("accrualHistory__game-content")}>
+              <div className={classNames("accrualHistory__game-start")}></div>
+              <div className={classNames("accrualHistory__game-line")}></div>
+              <div className={classNames("accrualHistory__game-position")} style={{ backgroundImage: `url(${background})` }}></div>
+              <div className={classNames("accrualHistory__game-finish")}></div>
+            </div>
+            </div>
         </div>
       </div>
 
