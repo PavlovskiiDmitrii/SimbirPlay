@@ -139,7 +139,7 @@ export const AccrualHistoryItemsList = () => {
           <div className={classNames("accrualHistory__list")}>
             <List
               size="large"
-              footer={<div> Всего : {user.totalRating}⭐</div>}
+              footer={<div style={{fontSize: '20px'}}> <strong>Всего : {user.totalRating}⭐</strong> </div>}
               dataSource={user.stimulus}
               renderItem={(item) => (
                 <List.Item>
