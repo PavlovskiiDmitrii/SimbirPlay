@@ -104,14 +104,14 @@ export const StoreItemsList = () => {
             </div>
           ))}
         </div>
-        <Button
+        {/* <Button
           onClick={() => {
             setPopupActive(true);
           }}
           type="primary"
         >
           Добавить товар
-        </Button>
+        </Button> */}
         {popupActive && (
           <Popup
             setPopupActive={setPopupActive}

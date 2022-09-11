@@ -61,7 +61,7 @@ export const RulesList = () => {
           </ul>
         </span>
       </div>
-      <div className={classNames("rule__list")}>
+      {/* <div className={classNames("rule__list")}>
         <Divider className={classNames("rule__title")} orientation="left">
           🎭Список активностей🎭
         </Divider>
@@ -81,7 +81,7 @@ export const RulesList = () => {
             </List.Item>
           )}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
