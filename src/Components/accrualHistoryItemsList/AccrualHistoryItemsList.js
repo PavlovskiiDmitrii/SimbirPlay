@@ -12,6 +12,7 @@ import {
 import { fetchRulesThunk, selectRules } from "../../store/rules/rulesSlice";
 import "./AccrualHistory.scss";
 import { Popup } from "../Popup/Popup";
+import background from "./formula.png";
 
 const { Option } = Select;
 
@@ -31,14 +32,11 @@ export const AccrualHistoryItemsList = () => {
     const { rules } = useSelector(selectRules);
     const [formHistoryProps, setFormHistoryProps] = useState(['...', 100, 1]);
 
-    console.log(rules);
-
     useEffect(() => {
       dispatch(fetchRulesThunk());
     }, []);
 
     const handleChange = (value) => {
-      console.log("value", value)
       setFormHistoryProps([value.label, value.value, value.key]);
     };
 
@@ -89,7 +87,6 @@ export const AccrualHistoryItemsList = () => {
           <Button
             type="primary"
             onClick={() => {
-              console.log(1111)
               fetchAddNewHistory(
                 iserId,
                 document.getElementById("basic_password").value,
@@ -121,7 +118,7 @@ export const AccrualHistoryItemsList = () => {
           className={classNames("accrualHistory__title")}
           orientation="left"
         >
-          История получения???
+          История зачислений
         </Divider>
         <div className={classNames("accrualHistory__wrap")}>
           <div className={classNames("accrualHistory__card")}>
@@ -164,15 +161,24 @@ export const AccrualHistoryItemsList = () => {
                 </List.Item>
               )}
             />
-            <Button
+            {/* <Button
               type="primary"
               onClick={() => {
                 setPopupActive(true);
               }}
             >
               Добавить баллы
-            </Button>
+            </Button> */}
           </div>
+          <div className={classNames("accrualHistory__game")}>
+            <div className={classNames("accrualHistory__game-titile")}>Уровень активности</div>
+            <div className={classNames("accrualHistory__game-content")}>
+              <div className={classNames("accrualHistory__game-start")}></div>
+              <div className={classNames("accrualHistory__game-line")}></div>
+              <div className={classNames("accrualHistory__game-position")} style={{ backgroundImage: `url(${background})` }}></div>
+              <div className={classNames("accrualHistory__game-finish")}></div>
+            </div>
+            </div>
         </div>
       </div>
 

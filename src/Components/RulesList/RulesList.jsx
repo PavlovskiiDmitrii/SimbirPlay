@@ -14,8 +14,6 @@ export const RulesList = () => {
     dispatch(fetchRulesThunk());
   }, [dispatch]);
 
-  console.log("rules", rules);
-
   return (
     <div>
       <div>

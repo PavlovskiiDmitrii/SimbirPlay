@@ -58,7 +58,6 @@ export const StoreItemsList = () => {
                 .catch((err) => {
                   setPopupActive(false);
                   alert("Повторите позже :(");
-                  console.log(err)
                 });
             }}
           >

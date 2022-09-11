@@ -10,7 +10,6 @@ export const fetchUserListThunk = createAsyncThunk(
   'userList/fetchUserList',
   async (direction) => {
     const response = await fetchUserRate(direction);
-    console.log(response.result);
     return response.result;
   }
 );
