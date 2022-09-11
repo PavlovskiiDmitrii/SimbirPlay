@@ -44,7 +44,7 @@
 
       &::before {
         position: absolute;
-        content: "0💎";
+        content: "0⭐";
         width: max-content;
         font-size: 20px;
         font-weight: 600;
@@ -64,7 +64,7 @@
 
     &-position {
       position: absolute;
-      right: 60%;
+      right: 40%;
       width: 50px;
       height: 50px;
       background-position: center;
@@ -81,7 +81,7 @@
       }
       &::before {
         position: absolute;
-        content: "20💎";
+        content: "55⭐";
         width: max-content;
         font-size: 20px;
         font-weight: 600;
@@ -108,7 +108,7 @@
       }
       &::before {
         position: absolute;
-        content: "50💎";
+        content: "100⭐";
         width: max-content;
         font-size: 20px;
         font-weight: 600;

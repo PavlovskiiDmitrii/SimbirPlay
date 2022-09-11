@@ -131,18 +131,15 @@ export const AccrualHistoryItemsList = () => {
             >
               <div>
                 <span>
-                  {user.name}&nbsp;
-                  {user.surname}
+                  {user.name}&nbsp;{user.surname}
                 </span>
-                <br />
-                <span>Frontend-разработчик</span>
               </div>
             </Card>
           </div>
           <div className={classNames("accrualHistory__list")}>
             <List
               size="large"
-              footer={<div> Всего : {user.totalRating}💎</div>}
+              footer={<div> Всего : {user.totalRating}⭐</div>}
               dataSource={user.stimulus}
               renderItem={(item) => (
                 <List.Item>
@@ -151,10 +148,10 @@ export const AccrualHistoryItemsList = () => {
 
                     <div className={classNames("rule__item")}>
                       <div className={classNames("rule__text")}>
-                        <strong>{item.name}</strong>
+                        {item.name}
                       </div>
                       <div className={classNames("rule__ball")}>
-                        <strong>{item.balls}</strong> SimbirCoin
+                        <strong>+{item.balls}</strong>⭐
                       </div>
                     </div>
                   </div>
