@@ -4,20 +4,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { Card, List, Button, Form, Divider, Input } from "antd";
 import { fetchAddNewHistory } from "../../api/addNewHistory";
 import classNames from "classnames";
+import { Select } from "antd";
 import {
   selectHistoryUser,
   fetchHistoryThunk,
 } from "../../store/history/historySlice";
+import { fetchRulesThunk, selectRules } from "../../store/rules/rulesSlice";
 import "./AccrualHistory.scss";
 import { Popup } from "../Popup/Popup";
+
+const { Option } = Select;
 
 export const AccrualHistoryItemsList = () => {
   const dispatch = useDispatch();
   const iserId = useLocation().pathname.split("/").pop();
   const { user } = useSelector(selectHistoryUser);
-
-
-  console.log(user)
 
   const [popupActive, setPopupActive] = useState(false);
 
@@ -26,6 +27,21 @@ export const AccrualHistoryItemsList = () => {
   }, []);
 
   const FormHistory = () => {
+    const dispatch = useDispatch();
+    const { rules } = useSelector(selectRules);
+    const [formHistoryProps, setFormHistoryProps] = useState(['...', 100, 1]);
+
+    console.log(rules);
+
+    useEffect(() => {
+      dispatch(fetchRulesThunk());
+    }, []);
+
+    const handleChange = (value) => {
+      console.log("value", value)
+      setFormHistoryProps([value.label, value.value, value.key]);
+    };
+
     return (
       <Form
         name="basic"
@@ -36,11 +52,30 @@ export const AccrualHistoryItemsList = () => {
       >
         <Form.Item
           label="Поощрение"
+          name="prom"
+          rules={[{ required: true, message: "За что поощряется сотрудник?" }]}
+        >
+          <Select
+            defaultValue={{ value: formHistoryProps[2], label: formHistoryProps[0] }}
+            labelInValue
+            style={{ width: 120 }}
+            onChange={handleChange}
+          >
+            {
+              rules.map((rule) => (
+                <Option key={rule.id} value={rule.defaultRating}>{rule.name}</Option>
+              ))
+            }
+          </Select>
+        </Form.Item>
+
+        {/* <Form.Item
+          label="Поощрение"
           name="username"
           rules={[{ required: true, message: "За что поощряется сотрудник?" }]}
         >
           <Input style={{ marginLeft: "10px" }} />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           label="Комментарий"
@@ -54,10 +89,17 @@ export const AccrualHistoryItemsList = () => {
           <Button
             type="primary"
             onClick={() => {
-              fetchAddNewHistory(1, "New Comment", 77)
+              console.log(1111)
+              fetchAddNewHistory(
+                iserId,
+                document.getElementById("basic_password").value,
+                formHistoryProps[1],
+                formHistoryProps[2],
+              )
                 .then(() => {
                   setPopupActive(false);
                   alert("Поощрение добавлено!");
+                  // window.location.reload();
                 })
                 .catch(() => {
                   setPopupActive(false);

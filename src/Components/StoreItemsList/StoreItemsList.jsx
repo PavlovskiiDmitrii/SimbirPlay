@@ -53,7 +53,7 @@ export const StoreItemsList = () => {
                 fetchAddNewStoreItem(document.getElementById('basic_username').value, document.getElementById('basic_password').value)
                 .then(() => {
                   setPopupActive(false);
-                  alert("Поощрение добавлено!");
+                  alert("Товар добавлен!");
                 })
                 .catch((err) => {
                   setPopupActive(false);
