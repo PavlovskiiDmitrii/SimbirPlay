@@ -2,4 +2,44 @@
   &__descr{
     max-width: 700px;
   }
+
+  &__title {
+    font-size: 30px !important;
+    border-top-color : #134BC5 !important;
+    margin-top: 10px;
+  }
+
+  &__list {
+      padding-top: 40px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    border-bottom: 1px solid #808080;
+  }
+
+  &__text {
+    font-size: 24px;
+    padding-right: 16px;
+    padding-left: 15px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      background-color: #808080;
+    }
+  }
+
+  &__ball {
+    font-size: 24px;
+  }
 }

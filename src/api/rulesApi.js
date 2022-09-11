@@ -35,7 +35,10 @@ const defaultRules = [
   },
 ];
 
-export async function fetchRules() {
+export async function fetchRules(id) {
   const { data } = await axios.get(`http://simbir-play.site/promo/list`);
-  return data;
+
+  return new Promise((resolve) =>
+    setTimeout(() => resolve({ data: data }), 500)
+  );
 }

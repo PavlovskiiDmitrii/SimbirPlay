@@ -1,17 +1,20 @@
-.accrualHistory{
-  margin: 50px;
-  display: flex;
-  &__list{
-    color: green;
-  }
-  &__container{
-    width: 300px;
-  }
-  .ant-card{
-    margin-right: 30px;
-  }
-  .card__descr{
+.accrualHistory {
+  &__wrap {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
+
+  &__title {
+    font-size: 30px !important;
+    border-top-color: #134BC5 !important;
+    margin-top: 10px;
+  }
+
+  &__card {}
+
+  &__list {}
+}
+
+.ant-list-footer {
+  padding-left: 25px;
 }

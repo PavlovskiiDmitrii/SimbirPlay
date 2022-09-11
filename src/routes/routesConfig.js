@@ -29,12 +29,6 @@ export const pathsLinks = [
     linkText: "О системе",
     type: "basic",
   },
-/*  {
-    path: "simbirplay",
-    page: <SimbirPlay />,
-    linkText: "SimbirPlay",
-    type: "basic",
-  },*/
 ];
 
 export const pathsContent = [

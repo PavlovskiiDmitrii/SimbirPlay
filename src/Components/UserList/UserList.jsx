@@ -14,7 +14,7 @@ export const UserList = (selectDirections) => {
   const { users } = useSelector(selectUserList);
   const dispatch = useDispatch();
   const filterUsers =
-    selectDirections.selectDirections === ""
+    selectDirections.selectDirections === "Все"
       ? users
       : users.filter(
           (el) => el.departament === selectDirections.selectDirections
@@ -31,8 +31,7 @@ export const UserList = (selectDirections) => {
       key: "rating",
       render: (rating) => (
         <>
-          <StarOutlined twoToneColor="#eb2f96" />
-          <span>{rating}</span>
+          <span>⭐{rating}</span>
         </>
       ),
     },

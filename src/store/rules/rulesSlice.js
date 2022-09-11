@@ -10,7 +10,7 @@ export const fetchRulesThunk = createAsyncThunk(
   'rules/fetchRules',
   async (direction) => {
     const response = await fetchRules(direction);
-    return response.result;
+    return response;
   }
 );
 
@@ -24,7 +24,7 @@ export const rulesSlice = createSlice({
       })
       .addCase(fetchRulesThunk.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.rules = action.payload;
+        state.rules = action.payload.data.result;
       });
   },
 });
