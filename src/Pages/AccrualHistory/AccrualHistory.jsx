@@ -1,6 +1,6 @@
 import React from "react";
 
-import {AccrualHistoryItemsList} from "../../Components/accrualHistoryItemsList/AccrualHistoryItemsList";
+import {AccrualHistoryItemsList} from "../../Components/AccrualHistoryItemsList/AccrualHistoryItemsList";
 import classNames from "classnames";
 import "../page.scss";
 

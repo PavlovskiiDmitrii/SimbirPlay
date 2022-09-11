@@ -1,14 +1,20 @@
 .directionSelect {
+
     &__wrap {
         font-size: 20px;
         display: flex;
         align-items: center;
-        justify-content: start;
         margin: 15px;
+        width: 586px;
     }
 
     &__select {
         font-size: 20px;
         margin-left: 15px;
     }
+}
+
+.directionSelect-wrap {
+    display: flex;
+    justify-content: center;
 }

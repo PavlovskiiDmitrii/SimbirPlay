@@ -2,6 +2,7 @@ import { Main } from "../Pages/Main/Main";
 import { AccrualHistory } from "../Pages/AccrualHistory/AccrualHistory";
 import { Store } from "../Pages/Store/Store";
 import { Rules } from "../Pages/Rules/Rules";
+import { Sistem } from "../Pages/Sistem/Sistem";
 
 export const pathsLinks = [
   {
@@ -22,12 +23,12 @@ export const pathsLinks = [
     linkText: "Как получить бонусы?",
     type: "basic",
   },
-/*  {
-    path: "simbirplay",
-    page: <SimbirPlay />,
-    linkText: "SimbirPlay",
+  {
+    path: "sistem",
+    page: <Sistem />,
+    linkText: "О системе",
     type: "basic",
-  },*/
+  },
 ];
 
 export const pathsContent = [

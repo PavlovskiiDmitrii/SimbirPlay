@@ -11,7 +11,7 @@ const {Option} = Select;
 
 export const DirectionSelect = () => {
     const {users} = useSelector(selectUserList);
-    const [selectDirections, setSelectDirections] = useState("");
+    const [selectDirections, setSelectDirections] = useState("Все");
 
     const handleChange = (value) => {
         setSelectDirections(value);
@@ -19,7 +19,7 @@ export const DirectionSelect = () => {
 
     return (
         <>
-            <div className="main__header-wrap">
+            <div className={classNames('directionSelect-wrap')}>
                 <div className={classNames('directionSelect__wrap')}>
                     <div>Направление:</div>
                     <Select
@@ -28,7 +28,7 @@ export const DirectionSelect = () => {
                         style={{width: 120}}
                         onChange={handleChange}
                     >
-                        {users.map((item) => (
+                        {users.concat({departament_id : 2929, departament: "Все"}).map((item) => (
                             <Option key={item.departament_id} value={item.departament}>{item.departament}</Option>
                         ))}
                     </Select>
